@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def index(request):
-    teste = 'kkkkkkkkkkkkk eh isso ai tio'
+    teste = 'a cor da'
     context = {
         "teste": teste
     }
