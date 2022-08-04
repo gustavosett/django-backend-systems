@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Base(models.Model):
     criacao = models.DateTimeField(auto_now=True)
@@ -7,7 +8,7 @@ class Base(models.Model):
     ativo = models.BooleanField(default=True)
 
     class Meta:
-        abstratic = True
+        abstract = True
 
 
 class Curso(Base):
@@ -22,8 +23,8 @@ class Curso(Base):
         return self.titulo
 
 
-class Avaliacao:
-    cursos = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
+class Avaliacao(Base):
+    curso = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
     nome = models.CharField(max_length=255)
     email = models.EmailField()
     comentario = models.TextField(blank=True, default='')
