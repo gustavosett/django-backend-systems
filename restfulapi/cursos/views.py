@@ -6,6 +6,13 @@ from .models import Curso, Avaliacao
 from .serializers import CursoSerializer, AvaliacaoSerializer
 
 
+def index(request):
+    teste = {
+        'teste': request
+    }
+    return render(request, 'index.html', teste)
+
+
 class CursoAPIView(APIView):
     """
     API DE CURSOS
